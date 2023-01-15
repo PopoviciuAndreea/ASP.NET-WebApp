@@ -1,0 +1,60 @@
+﻿@page
+@model PerfumeShopApp.Pages.Products.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].Imagine)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].Brand)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].Nume)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].Descriere)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].Pret)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Product) {
+        <tr>
+            <td>
+                <img class="m-sm-auto" src="~/images/@Html.DisplayFor(modelItem => item.Imagine)" alt="Product Image" width="70" height="70" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Brand)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nume)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descriere)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pret) $
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,54 @@
+﻿@page
+@model PerfumeShopApp.Pages.Products.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Product</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Product.Brand" class="control-label"></label>
+                <input asp-for="Product.Brand" class="form-control" />
+                <span asp-validation-for="Product.Brand" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.Nume" class="control-label"></label>
+                <input asp-for="Product.Nume" class="form-control" />
+                <span asp-validation-for="Product.Nume" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.Descriere" class="control-label"></label>
+                <input asp-for="Product.Descriere" class="form-control" />
+                <span asp-validation-for="Product.Descriere" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.Pret" class="control-label"></label>
+                <input asp-for="Product.Pret" class="form-control" />
+                <span asp-validation-for="Product.Pret" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.Imagine" class="control-label"></label>
+                <input asp-for="Product.Imagine" class="form-control" />
+                <span asp-validation-for="Product.Imagine" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
